@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar wat w3-card w3-left-align w3-large">
+      <a class="w3-bar-item  wat w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="NavbarFunc()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="dashboard.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="graph.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Graphs</a>
+      <a href="automation.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Automation</a>
+      <a href="logout.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="graph.php" class="w3-bar-item w3-button w3-padding-large ">Graphs</a>
+      <a href="automation.php" class="w3-bar-item w3-button w3-padding-large">Automation</a>
+      <a href="logout.php" class="w3-bar-item w3-button w3-padding-large ">Logout</a>
+    </div>
+  </div>
+  <!-- Connection bar -->
+  <div class="w3-bottom">
+    <div class="w3-bar w3-white w3-center con-foot-top">
+      <a style="width:25%" class="w3-bar-item welp"><b class="stat-green">Node 1</b></a>
+      <a style="width:25%" class="w3-bar-item welp"><b class="stat-red">Node 2</b></a>
+      <a style="width:25%" class="w3-bar-item welp"><b class="stat-red">Node 3</b></a>
+      <a style="width:25%" class="w3-bar-item grey w3-hide-small">
+        <div href="#myModal" data-toggle="modal" class="grey" id="wat">
+          Automation
+        </div>
+        </a>
+        <a style="width:25%"class="w3-hide-medium w3-hide-large w3-center">
+        <div href="#myModal" data-toggle="modal" class="grey" id="wat">
+          <i class="fa fa-cogs fa-2x"></i>
+        </div>
+       </a>
+      <div data-toggle="modal" data-target="#myModal" style="display:none;"></div>
+    </div>
+  </div>
+  <!-------- Modal Html --------------------->
+  <div class="comtainer-fluid">
+      <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content modal_content">
+                  <div class="modal-body modal_body">
+                      <h2 class="modal-title m-fontweight">Automation Control</h2>
+                      <div class="row">
+                        <div class="col-ARE n-fontweight">Automation</div>
+                        <div class="col-ARE n-fontweight">Status</div>
+                        <div class="col-ARE n-fontweight">Manual</div>
+                        <div class="col-ARE n-fontweight">Auto</div>
+                        <div class="col-ARE n-fontweight">Off</div>
+                      </div>
+                    <!---------- Heater ----------->
+                      <div class="row">
+                        <div class="col-ARE a-fontweight">Heater</div>
+                        <div class="col-ARE"><i class="fa fa-circle status-red" aria-hidden="true" id="heatstat"></i></div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='1',id='1')"><i class="fa fa-circle-o-notch"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='2',id='1')"><i class="fa fa-cog fa-lg"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-off" onclick="active_disactive_user(value='0',id='1')"><i class="fa fa-power-off"></i></button>
+                        </div>
+                      </div>
+                    <!--------- Aerator ----------->
+                      <div class="row">
+                        <div class="col-ARE a-fontweight">Aerator</div>
+                        <div class="col-ARE"><i class="fa fa-circle status-red" aria-hidden="true" id="aerstat"></i></div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='1',id='2')"><i class="fa fa-circle-o-notch"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='2',id='2')"><i class="fa fa-cog fa-lg"></i></button>
+                        </div>
+                          <div class="col-ARE">
+                           <button class="btn-off" onclick="active_disactive_user(value='0',id='2')"><i class="fa fa-power-off"></i></button>
+                        </div>
+                      </div>     
+                    <!---------- Tank Valve ----------->
+                      <div class="row">
+                        <div class="col-ARE a-fontweight">Tank Valve</div>
+                        <div class="col-ARE"><i class="fa fa-circle status-red" aria-hidden="true" id="tanstat"></i></div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='1',id='3')"><i class="fa fa-circle-o-notch"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='2',id='3')"><i class="fa fa-cog fa-lg"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-off" onclick="active_disactive_user(value='0',id='3')"><i class="fa fa-power-off"></i></button>
+                        </div>
+                      </div>
+                    <!--------- Drain Valve ----------->
+                      <div class="row">
+                        <div class="col-ARE a-fontweight">Drain Valve</div>
+                        <div class="col-ARE"><i class="fa fa-circle status-red" id="drastat"></i></div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='1',id='4')"><i class="fa fa-circle-o-notch"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-on" onclick="active_disactive_user(value='2',id='4')"><i class="fa fa-cog fa-lg"></i></button>
+                        </div>
+                        <div class="col-ARE">
+                           <button class="btn-off" onclick="active_disactive_user(value='0',id='4')"><i class="fa fa-power-off"></i></button>
+                        </div>
+                      </div>    
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
